@@ -1,7 +1,24 @@
+import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
     async update(req, res) {
+        const schema = Yup.object().shape({
+            name: Yup.string(),
+            email: Yup.string().email(),
+            avatar_id: Yup.number(),
+            oldPassword: Yup.string().min(3),
+            password: Yup.string()
+                .min(3)
+                .when('oldPassword', (oldPassword, field) =>
+                    oldPassword ? field.required() : field
+                ),
+        });
+
+        if (!(await schema.isValid(req.body))) {
+            res.status(422).json({ error: 'Validation fails' });
+        }
+
         const { email, oldPassword } = req.body;
 
         const user = await User.findByPk(req.userId);
@@ -28,6 +45,20 @@ class UserController {
     }
 
     async store(req, res) {
+        const schema = Yup.object().shape({
+            name: Yup.string().required(),
+            email: Yup.string()
+                .email()
+                .required(),
+            password: Yup.string()
+                .required()
+                .min(3),
+        });
+
+        if (!(await schema.isValid(req.body))) {
+            res.status(422).json({ error: 'Validation fails' });
+        }
+
         const userExists = await User.findOne({
             where: { email: req.body.email },
         });
