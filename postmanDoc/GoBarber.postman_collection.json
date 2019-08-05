@@ -1,0 +1,497 @@
+{
+	"info": {
+		"_postman_id": "a0d303b2-f31d-489b-831b-14270ca0e228",
+		"name": "GoBarber",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PRESTADOR",
+			"item": [
+				{
+					"name": "Listar agendamentos Prestador",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0YWRldS50dXBpekBnbWFpbC5jb20iLCJpYXQiOjE1NjQ4Njk5MTIsImV4cCI6MTU2NTQ3NDcxMn0.ENzn0VD8eURssDxLfsekCcc4ab6ayGRzlLEPaM7vDOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}schedule?page=2",
+							"host": [
+								"{{base_url}}schedule"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Notificações",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoibmF0aGFseUBnbWFpbC5jb20iLCJpYXQiOjE1NjQ5NDkxMjMsImV4cCI6MTU2NTU1MzkyM30.Jz0LFhGXNbP6ip1RsJV1NWqLJESkDRNZotpMEPYqquM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}notifications",
+							"host": [
+								"{{base_url}}notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ler Notificação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAsImVtYWlsIjoibmF0aGFseUBnbWFpbC5jb20iLCJpYXQiOjE1NjQ5NDkxMjMsImV4cCI6MTU2NTU1MzkyM30.Jz0LFhGXNbP6ip1RsJV1NWqLJESkDRNZotpMEPYqquM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}notifications/5d4764d123bf66327c7e388d",
+							"host": [
+								"{{base_url}}notifications"
+							],
+							"path": [
+								"5d4764d123bf66327c7e388d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CLIENTE",
+			"item": [
+				{
+					"name": "Upload File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0YWRldS50dXBpekBnbWFpbC5jb20iLCJpYXQiOjE1NjQ4Njk5MTIsImV4cCI6MTU2NTQ3NDcxMn0.ENzn0VD8eURssDxLfsekCcc4ab6ayGRzlLEPaM7vDOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Avell/Pictures/pp.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}files",
+							"host": [
+								"{{base_url}}files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0YWRldS50dXBpekBnbWFpbC5jb20iLCJpYXQiOjE1NjQ4Njk5MTIsImV4cCI6MTU2NTQ3NDcxMn0.ENzn0VD8eURssDxLfsekCcc4ab6ayGRzlLEPaM7vDOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tadeu Humberto dos Reis\",\n\t\"email\": \"tadeu.tupiz@gmail.com\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}users",
+							"host": [
+								"{{base_url}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Providers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0YWRldS50dXBpekBnbWFpbC5jb20iLCJpYXQiOjE1NjQ4Njk5MTIsImV4cCI6MTU2NTQ3NDcxMn0.ENzn0VD8eURssDxLfsekCcc4ab6ayGRzlLEPaM7vDOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}providers",
+							"host": [
+								"{{base_url}}providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar agendamneto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0YWRldS50dXBpekBnbWFpbC5jb20iLCJpYXQiOjE1NjQ4Njk5MTIsImV4cCI6MTU2NTQ3NDcxMn0.ENzn0VD8eURssDxLfsekCcc4ab6ayGRzlLEPaM7vDOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"provider_id\": 10,\n\t\"date\": \"2019-08-16T18:00:00-03:00\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}appointments",
+							"host": [
+								"{{base_url}}appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar agendamentos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0YWRldS50dXBpekBnbWFpbC5jb20iLCJpYXQiOjE1NjQ4Njk5MTIsImV4cCI6MTU2NTQ3NDcxMn0.ENzn0VD8eURssDxLfsekCcc4ab6ayGRzlLEPaM7vDOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}appointments?page=2",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Appointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJ0YWRldS50dXBpekBnbWFpbC5jb20iLCJpYXQiOjE1NjQ4Njk5MTIsImV4cCI6MTU2NTQ3NDcxMn0.ENzn0VD8eURssDxLfsekCcc4ab6ayGRzlLEPaM7vDOc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}appointments/9",
+							"host": [
+								"{{base_url}}appointments"
+							],
+							"path": [
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get fotinha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/files/9157243230ede51f49680b0219547e81.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"files",
+								"9157243230ede51f49680b0219547e81.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Tadeu Tupinambá\",\n\t\"email\": \"tadeu.tupiz@gmail.com\",\n\t\"password\": \"123\",\n\t\"provider\": \"true\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}users",
+					"host": [
+						"{{base_url}}users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Tadeu Tupinambá\",\n\t\"email\": \"tadeu.tupiz@gmail.com\",\n\t\"password\": \"123\",\n\t\"provider\": \"true\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}users",
+							"host": [
+								"{{base_url}}users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"52-yIrTz0C41tgHVk+EaKGaF3SL8OE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Aug 2019 21:00:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 8,\n    \"name\": \"Tadeu Tupinambá\",\n    \"email\": \"tadeu.tupiz@gmail.com\",\n    \"provider\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"tadeu.tupiz@gmail.com\",\n\t\"password\": \"123\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}sessions",
+					"host": [
+						"{{base_url}}sessions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"tadeu.tupiz@gmail.com\",\n\t\"password\": \"123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}sessions",
+							"host": [
+								"{{base_url}}sessions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "301"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12d-ReNMpE+dGkf3oX/NzYDc4XMcA/g\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 03 Aug 2019 21:00:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user\": {\n        \"id\": 8,\n        \"name\": \"Tadeu Tupinambá\",\n        \"email\": \"tadeu.tupiz@gmail.com\"\n    },\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6IlRhZGV1IFR1cGluYW1iw6EiLCJlbWFpbCI6InRhZGV1LnR1cGl6QGdtYWlsLmNvbSIsImlhdCI6MTU2NDg2NjA1OSwiZXhwIjoxNTY1NDcwODU5fQ.OZrRMZgTq1MCCHVop4MMJkvqR8PuNOmsqra6sXUpdyU\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bc2ee007-f99c-4a83-be71-65bb611ebe8e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cc5cb67b-6d54-4a44-b9ca-daae7700cbda",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "65f5cf99-9d46-4572-9ec3-377934573b7f",
+			"key": "base_url",
+			"value": "http://localhost:3333/",
+			"type": "string"
+		}
+	]
+}
