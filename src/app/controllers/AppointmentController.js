@@ -1,15 +1,21 @@
 import * as Yup from 'yup';
-import { startOfHour, parseISO, isBefore } from 'date-fns';
+import { startOfHour, parseISO, isBefore, format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import User from '../models/User';
 import Appointment from '../models/Appointment';
 import File from '../models/File';
+import Notification from '../schemas/Notification';
 
 class AppointmentController {
     async index(req, res) {
+        const { page = 1 } = req.query;
+
         const appointments = await Appointment.findAll({
             where: { user_id: req.userId, canceled_at: null },
             attributes: ['id', 'date', 'canceled_at'],
             order: ['date'],
+            limit: 10,
+            offset: (page - 1) * 10,
             include: [
                 {
                     model: User,
@@ -92,6 +98,22 @@ class AppointmentController {
                 error: 'Appointment date is not avaiable.',
             });
         }
+
+        /**
+         * Notify provider
+         */
+
+        const user = await User.findByPk(req.userId);
+        const formattedDate = format(
+            hourStart,
+            "'dia' dd 'de' MMMM', às' H:mm'h'",
+            { locale: pt }
+        );
+
+        await Notification.create({
+            content: `Novo agendamento de ${user.name} para o ${formattedDate}`,
+            user: provider_id,
+        });
 
         const appointment = await Appointment.create({
             user_id: req.userId,
