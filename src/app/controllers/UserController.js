@@ -50,7 +50,7 @@ class UserController {
             ],
         });
 
-        return res.json({ id, email: name, provider, avatar });
+        return res.json({ id, email, name, provider, avatar });
     }
 
     async store(req, res) {
